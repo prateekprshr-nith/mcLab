@@ -54,11 +54,11 @@ bool neighborHasFreq(int &freq, point pt)
           NW(pt.x - 1, pt.y - 1);
     */
     point ptArr[8];
-    ptArr[0].setPoint(pt.x - 1 , pt.y);
+    ptArr[0].setPoint(pt.x - 1, pt.y);
     ptArr[1].setPoint(pt.x - 1, pt.y +1);
-    ptArr[2].setPoint(pt.x , pt.y + 1);
+    ptArr[2].setPoint(pt.x, pt.y + 1);
     ptArr[3].setPoint(pt.x + 1, pt.y + 1);
-    ptArr[4].setPoint(pt.x + 1 , pt.y);
+    ptArr[4].setPoint(pt.x + 1, pt.y);
     ptArr[5].setPoint(pt.x + 1, pt.y - 1);
     ptArr[6].setPoint(pt.x, pt.y - 1);
     ptArr[7].setPoint(pt.x - 1, pt.y - 1); 
