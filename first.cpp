@@ -22,6 +22,7 @@ struct point
     void print()
     {
         cout << "(" << x << ", " << y << ")";
+	cout << endl;
     }
 };
 
