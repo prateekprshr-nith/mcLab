@@ -49,8 +49,6 @@ int main()
 	cout << endl << "Intermediate code mixing A and B is: ";
 	for(int i = 0; i < 4; i++)
 	{
-		//sA[i] = A * cA[i];
-		//sB[i] = B * cB[i];
 		cS[i] = (A * cA[i]) + (B * cB[i]);
 		cout << cS[i];
 		cout << " ";
@@ -67,7 +65,6 @@ int main()
 	sum = 0;
 	for(int i = 0; i < 4; i++)
 	{
-		//cout << cS[i] * cB[i]; cout << endl;
 		sum += cS[i] * cB[i]; 	// For B
 	}
 	
