@@ -68,7 +68,7 @@ int main()
 	{
 		sum += cS[i] * cB[i]; 	// For B
 	}
-	cout << endl << "B received as: " << (sum <= 0) ? 0 : 1; cout << endl;
+	cout << endl << "B received as: " << (sum > 0) ? 1 : 0; cout << endl;
 	
 	return 1;
 }
