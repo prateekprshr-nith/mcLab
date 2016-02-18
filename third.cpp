@@ -62,13 +62,16 @@ int main()
 	{
 		sum += cS[i] * cA[i]; 	// For A
 	}
-	cout << endl << "A received as: " << (sum > 0) ? 1 : 0;
+	cout << endl << "A's received as: " << (sum > 0) ? 1 : 0; cout << endl;
 	
-	for(int i = 0, sum = 0; i < 4; i++)
+	sum = 0;
+	for(int i = 0; i < 4; i++)
 	{
+		//cout << cS[i] * cB[i]; cout << endl;
 		sum += cS[i] * cB[i]; 	// For B
 	}
-	cout << endl << "B received as: " << (sum > 0) ? 1 : 0; cout << endl;
+	
+	cout << endl << "B's received as: " << (sum > 0) ? 1 : 0; cout << endl;
 	
 	return 1;
 }
