@@ -1,3 +1,8 @@
+/*
+ * Programm to implement frequency reuse
+ * Prateek Prasher
+ */
+
 #include <iostream>
 using namespace std;
 
@@ -43,16 +48,6 @@ bool isValid(point &pt)
 // Function to check neighbors for identical frequency
 bool neighborHasFreq(int &freq, point pt)
 {
-    /*
-    point N(pt.x - 1 , pt.y),
-          NE(pt.x - 1, pt.y +1),
-          E(pt.x , pt.y + 1),
-          SE(pt.x + 1, pt.y + 1),
-          S(pt.x + 1 , pt.y),
-          SW(pt.x + 1, pt.y - 1),
-          S(pt.x, pt.y - 1),
-          NW(pt.x - 1, pt.y - 1);
-    */
     point ptArr[8];
     ptArr[0].setPoint(pt.x - 1, pt.y);
     ptArr[1].setPoint(pt.x - 1, pt.y +1);
@@ -85,20 +80,26 @@ int main()
     cout << "Enter size of grid: "; 
     cin >> size; 
     
+    // Allocate the frequency
     for(int i = 0; i < size; i++)
     {
         for(int j = 0; j < size; j++)
         {
             currFreq = 1;
+            
             //cout << "Curr " << i << ", " << j << endl;
             while(neighborHasFreq(currFreq, point(i, j)))
             {
                 currFreq++;
             }
+            
             mat[i][j] = currFreq;
             //cout << "Curr assigned" <<currFreq<< endl;  
         }
     }
+    
+    // Print the original matrix
+    cout << endl << "The original matrix is: " << endl;
     
     for(int i = 0; i < size; i++)
     {
@@ -108,5 +109,47 @@ int main()
         }
         cout << endl;
     }    
-     
+    
+    // Get the position to replace
+    point pt;
+    cout << endl << "Enter space seprated values i, j: ";
+    cin >> pt.x >> pt.y;
+    
+    // Now print the modified matrix
+    cout << endl << "The modified matrix is: " << endl;
+    
+    for(int i = 0; i < size; i++)
+    {
+        for(int j = 0; j < size; j++)
+        {
+            if(i == pt.x && j == pt.y)
+            	cout << " " << "    ";
+            else
+            	cout << mat[i][j] << "    ";
+        }
+        cout << endl;
+    }
+    
+    
+    // Re-allocate the frequency
+    currFreq = 1;
+    
+    while(neighborHasFreq(currFreq, point(pt.x, pt.y)))
+    {
+    	currFreq++;
+    }
+            
+    mat[pt.x][pt.y] = currFreq;
+    
+    // Matrix after reallocation of frequency 
+    cout << endl << "The final matrix is: " << endl;
+    
+    for(int i = 0; i < size; i++)
+    {
+        for(int j = 0; j < size; j++)
+        {
+            cout << mat[i][j] << "    ";
+        }
+        cout << endl;
+    } 
 }
